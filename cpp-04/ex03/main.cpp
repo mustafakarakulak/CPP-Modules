@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mustafakarakulak <mustafakarakulak@stud    +#+  +:+       +#+        */
+/*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 12:33:04 by mustafakara       #+#    #+#             */
-/*   Updated: 2023/08/13 12:33:05 by mustafakara      ###   ########.fr       */
+/*   Updated: 2023/08/15 16:15:40 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

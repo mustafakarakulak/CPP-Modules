@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mustafakarakulak <mustafakarakulak@stud    +#+  +:+       +#+        */
+/*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 01:32:29 by mustafakara       #+#    #+#             */
-/*   Updated: 2023/08/13 01:32:29 by mustafakara      ###   ########.fr       */
+/*   Updated: 2023/08/15 16:04:20 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal( void ) : _type( "WrongAnimel" ) {
+WrongAnimal::WrongAnimal( void ) : _type( "WrongAnimal" ) {
     std::cout << this->_type << " constructor called" << std::endl;
 }
 

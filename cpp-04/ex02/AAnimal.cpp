@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mustafakarakulak <mustafakarakulak@stud    +#+  +:+       +#+        */
+/*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 18:24:13 by mustafakara       #+#    #+#             */
-/*   Updated: 2023/08/13 18:24:15 by mustafakara      ###   ########.fr       */
+/*   Updated: 2023/08/15 16:04:36 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AAnimal.hpp"
 
-AAnimal::AAnimal( void ) : _type( "AAnimel" ) {
+AAnimal::AAnimal( void ) : _type( "AAnimal" ) {
     std::cout << this->_type << " constructor called" << std::endl;
 }
 
