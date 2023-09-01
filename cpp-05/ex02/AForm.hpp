@@ -27,7 +27,7 @@ class Form
             int         getGradeToExecute() const;
             void        beSigned(const Bureaucrat &bureaucrat);
 
-            // we should make it as an abstract class
+            // abstract yapmak için gerekli fonksiyon
             virtual void        execute(Bureaucrat const & executor) const = 0;
 
             class GradeTooHighException : public std::exception
@@ -49,6 +49,6 @@ class Form
             };
 };
 
-std::ostream &operator<<(std::ostream &out, const Form &form);
+std::ostream &operator<<(std::ostream &o, const Form &form);
 
 #endif

@@ -24,7 +24,7 @@ int main(void)
         b1.signForm(f1);
         std::cout << "After f1 being signed "<< f1 << std::endl;
     }
-    catch (std::exception & e)
+    catch (std::exception &e)
     {
         std::cout << "Grade out of range " << std::endl;
     }

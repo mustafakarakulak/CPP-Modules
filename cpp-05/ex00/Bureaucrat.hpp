@@ -25,7 +25,6 @@ class Bureaucrat
 		Bureaucrat( const std::string& name, int grade );
 		Bureaucrat( const Bureaucrat& src );
 		~Bureaucrat();
-
 		Bureaucrat& operator=( const Bureaucrat& rhs );
 
 		std::string getName() const;
@@ -47,4 +46,4 @@ class Bureaucrat
 
 std::ostream&   operator<<( std::ostream& o, const Bureaucrat& rhs );
 
-#endif // BUREAUCRAT_HPP
+#endif

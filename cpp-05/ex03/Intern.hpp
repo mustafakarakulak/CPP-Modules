@@ -9,7 +9,6 @@ public:
     Intern();
     Intern( const Intern& src );
     ~Intern();
-
     Intern& operator=( const Intern& rhs );
 
     Form*   makeForm( std::string name, std::string target );

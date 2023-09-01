@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.h"
+#include "Bureaucrat.hpp"
 
 int main( void )
 {
 	try {
-		Bureaucrat bureaucrat("ali", 54324);
+		Bureaucrat bureaucrat("Ali", 54324);
 		std::cout << bureaucrat << std::endl;
 		bureaucrat.incrementGrade();
 		bureaucrat.decrementGrade();
@@ -35,7 +35,7 @@ int main( void )
 	}
 
 	try {
-		Bureaucrat bureaucrat("Ayşe", 24);
+		Bureaucrat bureaucrat("Ayse", 23);
 		std::cout << bureaucrat << std::endl;
 		bureaucrat.incrementGrade();
 		bureaucrat.decrementGrade();

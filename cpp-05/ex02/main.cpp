@@ -9,14 +9,18 @@ int main(void)
 {
     try
     {
-        Bureaucrat  *bureaucrat = new Bureaucrat("Bureaucrat", 40);
+        Bureaucrat  *bureaucrat = new Bureaucrat("Bureaucrat", 1);
         Form        *form = new PresidentialPardonForm("Form");
         Form        *form2 = new RobotomyRequestForm("Form2");
         Form        *form3 = new ShrubberyCreationForm("dosya");
 
+		std::cout << "----------------" << std::endl;
         std::cout << *bureaucrat << std::endl;
+		std::cout << "----------------" << std::endl;
         std::cout << *form << std::endl;
+		std::cout << "----------------" << std::endl;
         std::cout << *form2 << std::endl;
+		std::cout << "----------------" << std::endl;
         std::cout << *form3 << std::endl;
         std::cout << "----------------------------------------" << std::endl;
         std::cout << "Sign Form section " << std::endl;

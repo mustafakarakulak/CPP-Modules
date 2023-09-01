@@ -18,8 +18,8 @@ class Form
             Form();
             Form(std::string name, int gradeToSign, int gradeToExecute);
             Form(const Form &copy);
-            Form &operator=(const Form &copy);
             ~Form();
+			Form &operator=(const Form &copy);
 
             std::string getName() const;
             bool        getSigned() const;

@@ -23,8 +23,6 @@ Form&   Form::operator=(const Form &copy)
     if (this != &copy)
     {
         this->_signed = copy.getSigned();
-        // didn't assign other attributes because 
-        // they are constant and can't be changed
     }
     return (*this);
 }
@@ -82,11 +80,11 @@ const char* Form::FormNotSignedException::what() const throw()
     return ("The form is not signed");
 }
 
-std::ostream& operator<<(std::ostream &out, const Form &form)
+std::ostream& operator<<(std::ostream &o, const Form &form)
 {
-    out << "Form name: " << form.getName() << std::endl;
-    out << "Grade to sign: " << form.getGradeToSign() << std::endl;
-    out << "Grade to execute: " << form.getGradeToExecute() << std::endl;
-    out << "Signed: " << form.getSigned() << std::endl;
-    return (out);
+    o << "Form name: " << form.getName() << std::endl;
+    o << "Grade to sign: " << form.getGradeToSign() << std::endl;
+    o << "Grade to execute: " << form.getGradeToExecute() << std::endl;
+    o << "Signed: " << form.getSigned() << std::endl;
+    return (o);
 }

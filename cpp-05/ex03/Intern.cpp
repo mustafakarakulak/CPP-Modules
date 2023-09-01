@@ -41,7 +41,7 @@ Form*   Intern::makeForm( std::string name, std::string target ) {
         new ShrubberyCreationForm( target )
     };
     
-    for ( int i(0); i < 3; i++ ) {
+    for ( int i = 0; i < 3; i++ ) {
         if ( name == formNames[i] ) {
             std::cout << "Intern creates " << name << std::endl;
             return forms[i];

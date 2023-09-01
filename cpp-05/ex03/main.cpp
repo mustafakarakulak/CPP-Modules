@@ -17,7 +17,7 @@ int main( void )
     }
 
     try {
-        Bureaucrat bureaucrat("ash", 2); // error with 200
+        Bureaucrat bureaucrat("ash", 2); // error 200
         ShrubberyCreationForm form1("Shrubbery");
         RobotomyRequestForm form2("Robotomy");
         PresidentialPardonForm form3("President");
@@ -37,5 +37,5 @@ int main( void )
     } catch (std::exception &e) {
         std::cout << e.what() << std::endl;
     }
-    return EXIT_SUCCESS;
+    return 0;
 }

@@ -32,6 +32,7 @@ Bureaucrat::Bureaucrat( const Bureaucrat& src ) : _name(src._name), _grade(src._
 }
 
 Bureaucrat::~Bureaucrat() {
+	std::cout << "Bureaucrat is dead." << std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator=( const Bureaucrat& rhs ) {

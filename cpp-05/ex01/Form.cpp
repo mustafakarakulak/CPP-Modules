@@ -14,7 +14,7 @@
 
 Form::Form() : _name("Default"), _gradeToSign(5), _gradeToExecute(6)
 {
-    _signed = false;
+    this->_signed = false;
     std::cout << "Default constructor called" << std::endl;
 }
 
@@ -38,8 +38,6 @@ Form&   Form::operator=(const Form &copy)
     if (this != &copy)
     {
         this->_signed = copy.getSigned();
-        // didn't assign other attributes because 
-        // they are constant and can't be changed
     }
     return (*this);
 }

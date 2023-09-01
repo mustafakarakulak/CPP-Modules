@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.h"
+#include "Bureaucrat.hpp"
 
 const char *Bureaucrat::GradeTooHighException::what() const throw(){
 	return("Grade too High!");

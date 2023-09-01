@@ -3,6 +3,8 @@
 
 #include "AForm.hpp"
 
+class Form;
+
 class PresidentialPardonForm : public Form
 {
     private:

@@ -27,17 +27,17 @@ class Bureaucrat
 		Bureaucrat( const std::string& name, int grade );
 		Bureaucrat( const Bureaucrat& src );
 		~Bureaucrat();
-
 		Bureaucrat& operator=( const Bureaucrat& rhs );
 
 		std::string getName() const;
 		int         getGrade() const;
 
-        void    signForm(Form &form);
         void        incrementGrade();
 		void        decrementGrade();
-        void    signForm();
-        void    beSign();
+
+		void    signForm();
+		void    beSign();
+		void    signForm(Form &form);
 
 	class GradeTooHighException : public std::exception {
 		public:
@@ -52,4 +52,4 @@ class Bureaucrat
 
 std::ostream&   operator<<( std::ostream& o, const Bureaucrat& rhs );
 
-#endif // BUREAUCRAT_HPP
+#endif

@@ -38,21 +38,21 @@ void    RobotomyRequestForm::execute(Bureaucrat const & executor) const
         throw Form::GradeTooLowException();
     else
     {
-        std::cout << "Drilling noises" << std::endl;
+        std::cout << "Drilling noises Vzzz Vzzz Tırım tırım tırak" << std::endl;
         srand(time(0));
         if (rand() % 2 == 0)
         {
             std::cout << this->_target << " has been robotomized successfully" << std::endl;
-            // std::cout << "*************" << std::endl;
-            // std::cout << rand() << std::endl;
-            // std::cout << "*************" << std::endl;
+            std::cout << "*************" << std::endl;
+            std::cout << rand() << std::endl;
+            std::cout << "*************" << std::endl;
         }
         else
         {
             std::cout << this->_target << " robotomization failed" << std::endl;
-            // std::cout << "*************" << std::endl;
-            // std::cout << rand() << std::endl;
-            // std::cout << "*************" << std::endl;
+            std::cout << "*************" << std::endl;
+            std::cout << rand() << std::endl;
+            std::cout << "*************" << std::endl;
         }
     }
 }
