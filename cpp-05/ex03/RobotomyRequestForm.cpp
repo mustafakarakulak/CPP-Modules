@@ -43,16 +43,16 @@ void    RobotomyRequestForm::execute(Bureaucrat const & executor) const
         if (rand() % 2 == 0)
         {
             std::cout << this->_target << " has been robotomized successfully" << std::endl;
-            // std::cout << "*************" << std::endl;
-            // std::cout << rand() << std::endl;
-            // std::cout << "*************" << std::endl;
+            std::cout << "*************" << std::endl;
+            std::cout << rand() << std::endl;
+            std::cout << "*************" << std::endl;
         }
         else
         {
             std::cout << this->_target << " robotomization failed" << std::endl;
-            // std::cout << "*************" << std::endl;
-            // std::cout << rand() << std::endl;
-            // std::cout << "*************" << std::endl;
+            std::cout << "*************" << std::endl;
+            std::cout << rand() << std::endl;
+            std::cout << "*************" << std::endl;
         }
     }
 }

@@ -3,28 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mustafakarakulak <mustafakarakulak@stud    +#+  +:+       +#+        */
+/*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 02:45:57 by mustafakara       #+#    #+#             */
-/*   Updated: 2023/09/01 02:47:55 by mustafakara      ###   ########.fr       */
+/*   Updated: 2023/09/01 06:34:31 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-Intern::Intern(){};
+Intern::Intern() {}
 
-Intern::~Intern(){};
+Intern::Intern( const Intern& src ) {
+    *this = src;
+}
 
-void    Intern::makeForm(std::string str1,
-        std::string str2){
-    if (str1 == "ShrubberyCreationForm")
-        std::cout << "Intern creates " << str1 << std::endl;
-    else if (str1 == "RobotomyRequestForm")
-        std::cout << "Intern creates " << str1 << std::endl;
-    else if (str1 == "PresidentialPardonForm")
-        std::cout << "Intern creates " << str1 << std::endl;
-    else
-        std::cout << "Intern can't create " << str1 <<
-        " because it's not a valid form" << std::endl;
+Intern::~Intern() {}
+
+Intern& Intern::operator=( const Intern& rhs ) {
+    ( void ) rhs;
+    return (*this);
+}
+
+Form*   Intern::makeForm( std::string name, std::string target ) {
+
+    std::string formNames[] = {
+        "robotomy request",
+        "presidential pardon",
+        "shrubbery creation"
+    };
+    Form*    forms[] = {
+        new RobotomyRequestForm( target ),
+        new PresidentialPardonForm( target ),
+        new ShrubberyCreationForm( target )
+    };
+    
+    for ( int i(0); i < 3; i++ ) {
+        if ( name == formNames[i] ) {
+            std::cout << "Intern creates " << name << std::endl;
+            return forms[i];
+        }
+    }
+    std::cout << "Intern cannot create " << name << " form" << std::endl;
+    return nullptr;
 }

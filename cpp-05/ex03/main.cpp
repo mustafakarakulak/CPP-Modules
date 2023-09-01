@@ -1,47 +1,41 @@
-#include "Bureaucrat.hpp"
 #include "AForm.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
+#include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
-
-int main(void)
+int main( void )
 {
-    try
     {
-        Bureaucrat  *bureaucrat = new Bureaucrat("Bureaucrat", 40);
-        Form        *form = new PresidentialPardonForm("Form");
-        Form        *form2 = new RobotomyRequestForm("Form2");
-        Form        *form3 = new ShrubberyCreationForm("metin");
+        Intern  someRandomIntern;
+        Form*   rrf;
 
-        std::cout << *bureaucrat << std::endl;
-        std::cout << *form << std::endl;
-        std::cout << *form2 << std::endl;
-        std::cout << *form3 << std::endl;
-        std::cout << "----------------------------------------" << std::endl;
-        std::cout << "Sign Form section " << std::endl;
-        bureaucrat->signForm(*form);
-        bureaucrat->signForm(*form2);
-        bureaucrat->signForm(*form3);
-
-        std::cout << "----------------------------------------" << std::endl;
-        std::cout << *bureaucrat << std::endl;
-        std::cout << *form << std::endl;
-        std::cout << *form2 << std::endl;
-        std::cout << *form3 << std::endl;
-
-        std::cout << "----------------------------------------" << std::endl;
-        std::cout << "Execute Form section " << std::endl;
-        bureaucrat->executeForm(*form);
-        bureaucrat->executeForm(*form2);
-        bureaucrat->executeForm(*form3);
-    
-        delete bureaucrat;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << "Grade out of range " << '\n';
+        // rrf = someRandomIntern.makeForm("robotomy", "Bender");
+        rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+        delete rrf;
     }
 
-    return (0);
+    try {
+        Bureaucrat bureaucrat("ash", 2); // error with 200
+        ShrubberyCreationForm form1("Shrubbery");
+        RobotomyRequestForm form2("Robotomy");
+        PresidentialPardonForm form3("President");
+
+        std::cout << "\n--------------- Form 1 ( Shrubbery ) ---------------" << std::endl;
+        bureaucrat.signForm(form1);
+        bureaucrat.executeForm(form1);
+        std::cout << "\n--------------- Form 2 ( Robotomy ) ---------------" << std::endl;
+        bureaucrat.signForm(form2);
+        bureaucrat.executeForm(form2);
+        bureaucrat.executeForm(form2);
+        bureaucrat.executeForm(form2);
+        bureaucrat.executeForm(form2);
+        std::cout << "\n--------------- Form 3 ( President ) ---------------" << std::endl;
+        bureaucrat.signForm(form3);
+        bureaucrat.executeForm(form3);
+    } catch (std::exception &e) {
+        std::cout << e.what() << std::endl;
+    }
+    return EXIT_SUCCESS;
 }
