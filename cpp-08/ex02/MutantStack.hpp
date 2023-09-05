@@ -6,14 +6,13 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 14:00:27 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/09/04 16:39:01 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/09/05 16:28:34 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MUTANTSTACK_HPP
 #define MUTANTSTACK_HPP
 #include <iostream>
-#include <vector>
 #include <stack>
 
 template <typename T>

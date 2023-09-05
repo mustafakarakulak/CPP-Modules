@@ -6,14 +6,13 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 14:00:27 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/09/04 16:38:52 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/09/05 16:27:51 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SPAN_HPP
 #define SPAN_HPP
 #include <iostream>
-#include <algorithm>
 #include <vector>
 
 class Span
