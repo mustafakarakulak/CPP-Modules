@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 14:00:27 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/09/05 16:27:07 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/09/05 17:00:32 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include <vector>
 
 template <typename T>
-
 int easyfind(T a, int i)
 {
 

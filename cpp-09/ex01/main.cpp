@@ -3,23 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mustafakarakulak <mustafakarakulak@stud    +#+  +:+       +#+        */
+/*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 15:39:31 by mustafakara       #+#    #+#             */
-/*   Updated: 2023/09/13 15:39:49 by mustafakara      ###   ########.fr       */
+/*   Updated: 2023/09/19 21:13:24 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
-int main(int ac, char **av)
-{
+bool	argument_checker(int ac, char **av){
 	if (ac != 2)
+		return false;
+	if (!av || !av[1] || av[1][0] == '\0')
+		return false;
+	for (int i = 0; av[1][i]; i++){
+		if (isdigit(av[1][i]))
+			return true;
+	}
+	return false;
+}
+
+int main(int ac, char **av){
+	std::stack<int> rpn;
+	if (argument_checker(ac, av) == false)
 	{
 		std::cout << "Error: invalide argument." << std::endl;
 		return (1);
 	}
-	std::stack<int> rpn;
 	int a, b;
 	for (int i = 0; av[1][i]; i++)
 	{

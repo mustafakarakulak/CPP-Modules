@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mustafakarakulak <mustafakarakulak@stud    +#+  +:+       +#+         #
+#    By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/19 14:11:15 by mustafakara       #+#    #+#              #
-#    Updated: 2023/09/19 14:11:16 by mustafakara      ###   ########.fr        #
+#    Updated: 2023/09/19 20:05:39 by mkarakul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ INC =	RPN.hpp
 
 CC = c++
 
-FLAGS = -Wall -Werror -Wextra -std=c++98
+FLAGS = -Wall -Werror -Wextra -std=c++98 -g
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
