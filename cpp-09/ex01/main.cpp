@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mustafakarakulak <mustafakarakulak@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 15:39:31 by mustafakara       #+#    #+#             */
-/*   Updated: 2023/09/19 21:13:24 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/09/20 10:54:06 by mustafakara      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,14 @@ int main(int ac, char **av){
 	std::stack<int> rpn;
 	if (argument_checker(ac, av) == false)
 	{
-		std::cout << "Error: invalide argument." << std::endl;
+		std::cout << "Error: invalide usage." << std::endl;
 		return (1);
 	}
+	std::string arg = av[1];
 	int a, b;
-	for (int i = 0; av[1][i]; i++)
+	for (int i = 0; arg[i]; i++)
 	{
-		if (isOperator(av[1][i]))
+		if (isOperator(arg[i]))
 		{
 			if (rpn.size() < 2)
 			{
@@ -45,22 +46,23 @@ int main(int ac, char **av){
 			rpn.pop();
 			b = rpn.top();
 			rpn.pop();
-			rpn.push(opertion(a, b, av[1][i]));
+			rpn.push(opertion(a, b, arg[i]));
 		}
-		else if (isValidNumber(av[1][i]))
+		else if (isValidNumber(arg[i]))
 		{
-			if (isValidNumber(av[1][i + 1]))
+			if (isValidNumber(arg[i + 1]))
 			{
 				std::cout << "Error" << std::endl;
 				return (1);
 			}
-			rpn.push(av[1][i] - 48);
+			rpn.push(arg[i] - 48);
 		}
-		else if (av[1][i] != ' ')
+		else if (arg[i] != ' ')
 		{
 			std::cout << "Error" << std::endl;
 			return (1);
 		}
 	}
 	std::cout << rpn.top() << std::endl;
+	return (0);
 }
