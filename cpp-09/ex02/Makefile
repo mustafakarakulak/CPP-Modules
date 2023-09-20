@@ -6,7 +6,7 @@
 #    By: mustafakarakulak <mustafakarakulak@stud    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/19 14:11:18 by mustafakara       #+#    #+#              #
-#    Updated: 2023/09/19 14:11:18 by mustafakara      ###   ########.fr        #
+#    Updated: 2023/09/20 13:34:39 by mustafakara      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ INC =	PmergeMe.hpp
 
 CC = c++
 
-FLAGS = -Wall -Werror -Wextra -std=c++98
+FLAGS = -Wall -Werror -Wextra -std=c++98 -g
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

@@ -6,16 +6,13 @@
 /*   By: mustafakarakulak <mustafakarakulak@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 15:40:23 by mustafakara       #+#    #+#             */
-/*   Updated: 2023/09/13 15:40:23 by mustafakara      ###   ########.fr       */
+/*   Updated: 2023/09/20 12:59:43 by mustafakara      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PMERGEME_HPP
 #define PMERGEME_HPP
 #include <iostream>
-#include <vector>
-#include <list>
-#include <ctime>
 #include <deque>
 template <typename T>
 void displayNum(T num)
