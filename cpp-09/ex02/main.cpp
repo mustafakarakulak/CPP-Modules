@@ -6,7 +6,7 @@
 /*   By: mustafakarakulak <mustafakarakulak@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 15:40:17 by mustafakara       #+#    #+#             */
-/*   Updated: 2023/09/20 14:05:03 by mustafakara      ###   ########.fr       */
+/*   Updated: 2023/09/20 17:17:20 by mustafakara      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,14 @@ int main(int ac, char **av)
 	}
 	std::vector<int> data;
 	std::deque<int> data2;
-	int nb;
+	long long int nb;
 	for (int i = 1; i < ac; i++)
 	{
-		nb = atoi(av[i]);
+		nb = atol(av[i]);
+        if (nb > INT_MAX || nb < INT_MIN || nb < 0){
+            std::cout << "Error: max integer value." << std::endl;
+            return (1);
+        }
 		data2.push_back(nb);
 		data.push_back(nb);
 	}
