@@ -1,35 +1,41 @@
-#include <iostream>
-#include <vector>
-#include <deque>
-#include <sstream>
-#include <ctime>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/12 18:24:59 by mkarakul          #+#    #+#             */
+/*   Updated: 2023/09/22 18:28:42 by mkarakul         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
 namespace {
 
-template <class T>
-void print_container(const std::string &mesg, const T &c)
-{
-	typedef typename T::const_iterator const_iterator;
+	template <class T>
+	void print_container(const std::string &mesg, const T &c)
+	{
+		typedef typename T::const_iterator const_iterator;
+	
+		std::cout << mesg;
+		for (const_iterator it = c.begin(); it != c.end(); ++it)
+			std::cout << *it << " ";
+		std::cout << std::endl;
+	}
 
-	std::cout << mesg;
-	for (const_iterator it = c.begin(); it != c.end(); ++it)
-		std::cout << *it << " ";
-	std::cout << std::endl;
+	template <class T>
+	double bench_container(T &c)
+	{
+		std::clock_t start = std::clock();
+		PmergeMe::process(c);
+		std::clock_t end = std::clock();
+		double elapsed = 1000000.0 * (end - start) / CLOCKS_PER_SEC;
+		return elapsed;
+	}
+
 }
-
-template <class T>
-double bench_container(T &c)
-{
-	std::clock_t start = std::clock();
-	PmergeMe::process(c);
-	std::clock_t end = std::clock();
-	double elapsed = 1000000.0 * (end - start) / CLOCKS_PER_SEC;
-	return elapsed;
-}
-
-} // namespace
 
 int main(int argc, char *argv[])
 {
