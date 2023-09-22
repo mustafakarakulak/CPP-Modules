@@ -1,39 +1,37 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: mustafakarakulak <mustafakarakulak@stud    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/09/19 14:11:18 by mustafakara       #+#    #+#              #
-#    Updated: 2023/09/20 16:05:20 by mustafakara      ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+UNAME_S := $(shell uname -s)
 
 NAME = PmergeMe
 
-SRC	 =	main.cpp
+CXX = c++
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror -Wpedantic -Wshadow -MMD
 
-INC =	PmergeMe.hpp
+SRC = \
+	main.cpp
 
+OBJ = $(SRC:%.cpp=%.o)
 
-CC = c++
+DEP = $(SRC:%.cpp=%.d)
 
-FLAGS = -Wall -Wextra -Werror -std=c++98 -g
-OBJ = $(SRC:.cpp=.o)
-
+PHONY := all
 all: $(NAME)
 
-%.o: %.cpp $(INC)
-		@$(CC) $(FLAGS) -c -o $@ -c $<
+$(NAME): $(OBJ)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
 
-$(NAME): $(OBJ) $(INC)
-		@$(CC) $(FLAGS) $(OBJ) -o $@ 
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
+PHONY += clean
 clean:
 	rm -rf $(OBJ)
+	rm -rf $(DEP)
 
+PHONY += fclean
 fclean: clean
 	rm -rf $(NAME)
 
-re:	fclean all
+PHONY += re
+re: fclean all
+
+
+.PHONY: $(PHONY)

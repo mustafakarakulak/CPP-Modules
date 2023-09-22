@@ -1,99 +1,81 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mustafakarakulak <mustafakarakulak@stud    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/13 15:40:23 by mustafakara       #+#    #+#             */
-/*   Updated: 2023/09/20 17:10:42 by mustafakara      ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#ifndef EX02_PMERGEME_HPP_
+#define EX02_PMERGEME_HPP_
 
-#ifndef PMERGEME_HPP
-#define PMERGEME_HPP
-#include <iostream>
+#include <vector>
 #include <deque>
 
-template <typename T>
-void displayNum(T num)
-{
-    for (typename T::iterator it = num.begin(); it != num.end(); it++)
-        std::cout << *it << " ";
-    std::cout << std::endl;
-}
+class PmergeMe {
+public:
+	template <class T>
+	static void process(T &c, int threshold = PmergeMe::kDefaultThreshold)
+	{
+		mergeInsertSort(c, 0, c.size() - 1, threshold);
+	}
+	
+private:
+	PmergeMe();
+	~PmergeMe();
+	PmergeMe(const PmergeMe &rhs);
+	PmergeMe &operator=(const PmergeMe &rhs);
 
-template <typename T>
-void merge(T &data, int left, int mid, int right)
-{
-    int i = left;
-    int j = mid + 1;
-    int k = left;
-    T tmp(5);
-    while (i <= mid && j <= right)
-    {
-        if (data[i] <= data[j])
-        {
-            tmp[k] = data[i];
-            k++;
-            i++;
-        }
-        else
-        {
-            tmp[k] = data[j];
-            k++;
-            j++;
-        }
-    }
-    while (i <= mid)
-    {
-        tmp[k] = data[i];
-        i++;
-        k++;
-    }
-    while (j <= right)
-    {
-        tmp[k] = data[j];
-        k++;
-        j++;
-    }
-    for (int p = left; p <= right; p++)
-        data[p] = tmp[p];
-}
+	static const int kDefaultThreshold = 10;
 
-template <typename T>
-void mergeInsertSort(T &data, int left, int right)
-{
-    if (left < right)
-    {
-        int mid = (left + right) / 2;
-        mergeInsertSort(data, left, mid);
-        mergeInsertSort(data, mid + 1, right);
-        merge(data, left, mid, right);
-    }
-}
+	template <class T>
+	static void mergeInsertSort(T& c, int start, int end, int threshold)
+	{
+		if (start < end) {
+			if (end - start < threshold) {
+				insertSort(c, start, end);
+			} else {
+				int mid = start + (end - start) / 2;
+				mergeInsertSort(c, start, mid, threshold);
+				mergeInsertSort(c, mid + 1, end, threshold);
+				merge(c, start, mid, end);
+			}
+		}
+	}
 
-template <typename T, typename T2>
-void sortNum(T num, T2 num2)
-{
-    std::cout << "Before: ";
-    displayNum(num);
-    clock_t start = clock();
-    mergeInsertSort(num, 0, num.size() - 1);
-    clock_t end = clock();
-    std::cout << "After: ";
-    displayNum(num);
+	template <class T>
+	static void insertSort(T &c, int start, int end)
+	{
+		for (int i = start + 1; i <= end; ++i) {
+			int key = c[i];
+			int j = i - 1;
+			for (; j >= start && c[j] > key; --j)
+				c[j + 1] = c[j];
+			c[j + 1] = key;
+		}
+	}
 
-    double time = double(end - start) / double(CLOCKS_PER_SEC) * 1000;
-    std::cout << "Time to process a range of " << num.size()
-              << " elements with std::vector: " << time << " ms" << std::endl;
-
-    start = clock();
-    mergeInsertSort(num2, 0, num2.size() - 1);
-    end = clock();
-    time = double(end - start) / double(CLOCKS_PER_SEC) * 1000;
-    std::cout << "Time to process a range of " << num2.size()
-              << " elements with std::list: " << time << " ms" << std::endl;
-}
+	template <class T>
+	static void merge(T &c, int start, int mid, int end)
+	{
+		int i, j, k;
+		int n1 = mid - start + 1;
+		int n2 = end - mid;
+	
+		T left(n1), right(n2);
+	
+		for (i = 0; i < n1; ++i)
+			left[i] = c[start + i];
+		for (j = 0; j < n2; ++j)
+			right[j] = c[mid + 1 + j];
+	
+		i = 0;
+		j = 0;
+		k = start;
+		while (i < n1 && j < n2) {
+			if (left[i] <= right[j])
+				c[k++] = left[i++];
+			else
+				c[k++] = right[j++];
+		}
+		while (i < n1)
+			c[k++] = left[i++];
+	
+		while (j < n2)
+			c[k++] = right[j++];
+	}
+};
 
 #endif
